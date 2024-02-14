@@ -21,9 +21,9 @@ app.use("*", (req: Request, res: Response) => {
     res.status(404).json({ message: "No Resource Found" })
 })
 
-// app.use((err, req, res, next) => {
-//     res.status(500).json({ message: err.message })
-// })
+app.use((err, req, res, next) => {
+    res.status(500).json({ message: err.message })
+})
 
 mongoose.connection.once("open", () => {
     console.log("Mongoose connected");
