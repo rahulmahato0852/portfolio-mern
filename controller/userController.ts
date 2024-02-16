@@ -8,6 +8,12 @@ export const addMessage = asyncHandler(async (req: Request, res: Response) => {
   const { subject, text, to, name, email } = req.body
 
 
+  if (email === "vp461365@gmail.com") {
+    res.status(400).json({ message: "Nikal Bhadve Vishal" })
+  }
+
+
+
   const html = `
     <div style="font-family: 'Arial', sans-serif; max-width: 600px; margin: 0 auto;">
       <h2 style="color: #3498db;">Hello ${name},</h2>
