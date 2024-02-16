@@ -8,7 +8,7 @@ export const addMessage = asyncHandler(async (req: Request, res: Response) => {
   const { subject, text, to, name, email } = req.body
 
 
-  if (email === "vp461365@gmail.com") {
+  if (email === "vp461365@gmail.com" || email === "startcoding29@gmail.com") {
     res.status(400).json({ message: "Nikal Bhadve Vishal" })
   }
 
