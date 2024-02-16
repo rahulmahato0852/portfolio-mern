@@ -8,8 +8,6 @@ export const addMessage = asyncHandler(async (req: Request, res: Response) => {
   const { subject, text, to, name, email } = req.body
 
 
-
-
   const html = `
     <div style="font-family: 'Arial', sans-serif; max-width: 600px; margin: 0 auto;">
       <h2 style="color: #3498db;">Hello ${name},</h2>
@@ -19,7 +17,7 @@ export const addMessage = asyncHandler(async (req: Request, res: Response) => {
         <p><strong>Phone no:</strong><a href="tel:8446414152">+91 8446414152</a></p>
       </div>
       
-      <p style="color: #555; margin-top: 20px;">I'll get back to you soon!</p>
+      <p style="color: #555; margin-top: 20px;">I'll get back to you soon.!</p>
       
       <div style="text-align: center; margin-top: 20px;">
         <p style="color: #999;">Best regards,</p>
