@@ -1,5 +1,6 @@
 import { Request, Response } from 'express';
 import sendEmail from '../utils/sendEmail';
+import User from '../model/User';
 const asyncHandler = require("express-async-handler")
 
 export const addMessage = asyncHandler(async (req: Request, res: Response) => {
@@ -52,6 +53,31 @@ export const addMessage = asyncHandler(async (req: Request, res: Response) => {
   })
   await sendEmail({ subject, text, html: Mehtml })
 
+  await User.create({ name, subject, email, text })
   res.status(200).json({ message: "Email Send Success" })
+
+})
+
+
+export const getMessages = asyncHandler(async (req: Request, res: Response) => {
+  const result = await User.find()
+  res.json({ message: "Data Fetch Success", result })
+})
+
+export const verifyPin = asyncHandler(async (req: Request, res: Response) => {
+
+  const { password, code } = req.body
+
+  if (!password || password.length < 4) {
+    res.status(400).json({ message: "Please provide valid code" })
+  }
+
+  let result = 0
+  password.map((item: number) => result += item)
+
+  if (result != code) {
+    res.status(400).json({ message: "Please provide valid code" })
+  }
+  res.status(200).json({ message: "Code verified" })
 
 })

@@ -14,7 +14,7 @@ const userSchema = new mongoose.Schema({
         required: true,
         type: String
     },
-    message: {
+    text: {
         required: true,
         type: String
     }
@@ -23,7 +23,7 @@ const userSchema = new mongoose.Schema({
 
 
 
-module.exports = mongoose.model("emails", userSchema)
+export default mongoose.model("emails", userSchema)
 
 
 
