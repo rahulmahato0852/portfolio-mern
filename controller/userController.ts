@@ -9,7 +9,7 @@ export const addMessage = asyncHandler(async (req: Request, res: Response) => {
 
 
   if (email === "vp461365@gmail.com" || email === "startcoding29@gmail.com") {
-    res.status(400).json({ message: "Nikal Bhadve Vishal" })
+    return res.status(400).json({ message: "Nikal Bhadve Vishal" })
   }
 
 
@@ -63,17 +63,22 @@ export const addMessage = asyncHandler(async (req: Request, res: Response) => {
 })
 
 
+
+
+
 export const getMessages = asyncHandler(async (req: Request, res: Response) => {
   const result = await User.find()
   res.json({ message: "Data Fetch Success", result })
 })
 
+
+
 export const verifyPin = asyncHandler(async (req: Request, res: Response) => {
 
   const { password, code } = req.body
 
-  if (!password || password.length < 4) {
-    res.status(400).json({ message: "Please provide valid code" })
+  if (!password || password.length < 4 || password.length > 4) {
+    return res.status(400).json({ message: "Please provide valid code length" })
   }
 
   let result = 0
