@@ -9,6 +9,7 @@ const storage = multer.diskStorage({
         cb(null, x)
     },
     destination: (req: Request, file: any, cb: Function) => {
+
         cb(null, "projects")
     },
 })
