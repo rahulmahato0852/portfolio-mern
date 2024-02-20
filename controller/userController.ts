@@ -85,7 +85,7 @@ export const verifyPin = asyncHandler(async (req: Request, res: Response) => {
   password.map((item: number) => result += item)
 
   if (result != code) {
-    res.status(400).json({ message: "Please provide valid code" })
+    return res.status(400).json({ message: "Please provide valid code" })
   }
   res.status(200).json({ message: "Code verified" })
 

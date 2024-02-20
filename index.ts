@@ -20,9 +20,11 @@ const app = express()
 app.use(express.static(path.join(__dirname, "public")))
 app.use(express.json())
 app.use(cors())
+app.use(express.static("projects"))
 
 
 app.use("/api/portfolio", require("./routes/userRoute"))
+app.use("/api/admin", require("./routes/adminRoute"))
 
 
 app.use("*", (req: Request, res: Response) => {
