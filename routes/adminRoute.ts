@@ -1,4 +1,4 @@
-import { addProject, deleteProjects, getProjects, loginAdmin } from "../controller/adminController"
+import { addProject, deleteProjects, getProjects, loginAdmin, updateProject } from "../controller/adminController"
 
 const router = require("express").Router()
 
@@ -8,6 +8,7 @@ router
     .get("/project", getProjects)
     .post("/add-project", addProject)
     .delete("/delete-project/:id", deleteProjects)
+    .put("/update-project/:id", updateProject)
 
 
 

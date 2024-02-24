@@ -67,3 +67,29 @@ export const deleteProjects = asyncHandler(async (req: Request, res: Response) =
 })
 
 
+
+export const updateProject = asyncHandler(async (req, res) => {
+    uploadImage(req, res, async (err: any) => {
+        const { id } = req.params
+
+        if (req.file) {
+            if (err) {
+                return res.status(400).json({ message: err.message })
+            }
+            console.log("sasa");
+
+            const result = await Project.findById(id)
+            if (result && result.hero) {
+                await fs.unlink(path.join(__dirname, "..", "projects", result.hero))
+            }
+            await Project.findByIdAndUpdate(id, { ...req.body, hero: req.file.filename })
+            return res.json({ message: "Project update success" })
+        }
+
+        await Project.findByIdAndUpdate(id, req.body)
+        res.json({ message: "Project update success" })
+    })
+
+
+})
+
