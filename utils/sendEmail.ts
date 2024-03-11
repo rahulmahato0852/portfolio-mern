@@ -21,7 +21,6 @@ const sendEmail = (emailOptions: EmailOptions): Promise<any> => new Promise((res
                 pass: process.env.EMAIL_PASS
             }
         })
-
         transporter.sendMail({ to, from: process.env.FROM_EMAIL, subject: subject, text: text, html }, (error) => {
             if (error) {
                 console.log(error)
