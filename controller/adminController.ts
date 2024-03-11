@@ -11,11 +11,11 @@ export const loginAdmin = asyncHandler(async (req: Request, res: Response) => {
     const { email, password } = req.body
 
     const result = await Admin.findOne({ email })
-    console.log(result);
 
+    console.log(result);
     if (!result) {
         res.status(400).json({ message: "Invalid Email" })
-        // return null
+        return
     }
 
     if (password !== result.password) {
