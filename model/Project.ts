@@ -21,6 +21,10 @@ const projectSchema = new mongoose.Schema({
     date: {
         type: String,
         required: true,
+    },
+    index: {
+        type: Number,
+        required: true
     }
 
 })
