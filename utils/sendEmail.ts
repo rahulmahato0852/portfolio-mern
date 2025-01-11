@@ -5,7 +5,7 @@ import dotenv from 'dotenv';
 dotenv.config({ path: "./.env" });
 
 interface EmailOptions {
-    to?: string;
+    to?: string
     subject: string;
     text: string;
     html?: string
@@ -23,7 +23,7 @@ const sendEmail = (emailOptions: EmailOptions): Promise<any> => new Promise((res
         })
         transporter.sendMail({ to, from: process.env.FROM_EMAIL, subject: subject, text: text, html }, (error) => {
             if (error) {
-                console.log(error)
+                console.log(error);
                 return reject(error.message)
             }
             resolve("Email Send Success")
@@ -32,7 +32,7 @@ const sendEmail = (emailOptions: EmailOptions): Promise<any> => new Promise((res
 
 
     } catch (error: any) {
-        return reject(error.message)
+        return reject(error.message);
     }
 })
 

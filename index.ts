@@ -22,7 +22,7 @@ app.use(express.json())
 app.use(cors())
 app.use(express.static("projects"))
 
-
+// singing room
 app.use("/api/portfolio", require("./routes/userRoute"))
 app.use("/api/admin", require("./routes/adminRoute"))
 
