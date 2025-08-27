@@ -36,7 +36,7 @@ export const loginAdmin = asyncHandler(async (req: Request, res: Response) => {
 
 export const addProject = asyncHandler(async (req: Request, res: Response) => {
     uploadImage(req, res, async (err: Error) => {
-        const { title, url, desc, date } = req.body
+        const { title, url, desc, date, index } = req.body
         console.log(req.body);
 
         if (err) {
@@ -44,7 +44,7 @@ export const addProject = asyncHandler(async (req: Request, res: Response) => {
         }
 
         const hero = req.file?.filename
-        await Project.create({ title, url, hero, desc, date })
+        await Project.create({ title, url, hero, desc, date, index })
 
         res.status(201).json({ message: "Project Add Success" })
     })

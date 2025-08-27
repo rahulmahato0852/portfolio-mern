@@ -38,13 +38,13 @@ exports.loginAdmin = (0, express_async_handler_1.default)((req, res) => __awaite
 exports.addProject = (0, express_async_handler_1.default)((req, res) => __awaiter(void 0, void 0, void 0, function* () {
     (0, uploadImage_1.default)(req, res, (err) => __awaiter(void 0, void 0, void 0, function* () {
         var _a;
-        const { title, url, desc, date } = req.body;
+        const { title, url, desc, date, index } = req.body;
         console.log(req.body);
         if (err) {
             return res.status(400).json({ message: err.message });
         }
         const hero = (_a = req.file) === null || _a === void 0 ? void 0 : _a.filename;
-        yield Project_1.default.create({ title, url, hero, desc, date });
+        yield Project_1.default.create({ title, url, hero, desc, date, index });
         res.status(201).json({ message: "Project Add Success" });
     }));
 }));

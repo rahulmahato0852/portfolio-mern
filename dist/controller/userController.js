@@ -34,7 +34,7 @@ exports.addMessage = asyncHandler((req, res) => __awaiter(void 0, void 0, void 0
       
       <div style="text-align: center; margin-top: 20px;">
         <p style="color: #999;">Best regards,</p>
-        <p style="color: #3498db;">Rahul Mehata</p>
+        <p style="color: #3498db;">Rahul Mahato</p>
       </div>
     </div>
   `;
@@ -57,7 +57,7 @@ exports.addMessage = asyncHandler((req, res) => __awaiter(void 0, void 0, void 0
     </div>
   `;
     yield (0, sendEmail_1.default)({
-        to: email, subject: `Thank you For contacting`, text: `Dear ${name},\n\nThank you so much for reaching out! Your message means a lot. I'll make it a priority to get back to you soon. 😊\n\nBest regards,\n[Rahul Mehata]`,
+        to: email, subject: `Thank you For contacting`, text: `Dear ${name},\n\nThank you so much for reaching out! Your message means a lot. I'll make it a priority to get back to you soon. 😊\n\nBest regards,\n[Rahul Mahato]`,
         html
     });
     yield (0, sendEmail_1.default)({ subject, text, html: Mehtml });
