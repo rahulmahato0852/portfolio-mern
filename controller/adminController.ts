@@ -6,6 +6,7 @@ import uploadImage from "../utils/uploadImage"
 import fs from "fs/promises"
 import path from "path";
 
+
 export const loginAdmin = asyncHandler(async (req: Request, res: Response) => {
 
     const { email, password } = req.body
@@ -29,6 +30,10 @@ export const loginAdmin = asyncHandler(async (req: Request, res: Response) => {
 
 
 
+
+
+
+
 export const addProject = asyncHandler(async (req: Request, res: Response) => {
     uploadImage(req, res, async (err: Error) => {
         const { title, url, desc, date } = req.body
@@ -46,10 +51,14 @@ export const addProject = asyncHandler(async (req: Request, res: Response) => {
 })
 
 
+
+
 export const getProjects = asyncHandler(async (req: Request, res: Response) => {
     const result = await Project.find()
     res.json({ message: "Project Get Success", result })
 })
+
+
 
 
 export const deleteProjects = asyncHandler(async (req: Request, res: Response) => {
@@ -65,6 +74,8 @@ export const deleteProjects = asyncHandler(async (req: Request, res: Response) =
         res.json({ message: "Project delete Success" })
     }
 })
+
+
 
 
 
